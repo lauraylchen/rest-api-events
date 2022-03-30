@@ -1,6 +1,14 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const PORT = 8080;
+require('dotenv/config');
+
+// Connect to DB
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  () => console.log('connected to DB')
+);
 
 // Middleware
 app.use(express.json());
