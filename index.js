@@ -20,8 +20,13 @@ const events = [
   }
 ];
 
+// Homepage
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 // Display all the events
-app.get('/events', (req, res) => {
+app.get('/api/events', (req, res) => {
   res.send(events)
 });
 
