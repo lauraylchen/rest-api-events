@@ -19,6 +19,7 @@
   "homepage": "https://github.com/lauraylchen/rest-api-events#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "mongoose": "^6.2.9",
     "nodemon": "^2.0.15"
   }
 }

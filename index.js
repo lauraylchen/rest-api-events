@@ -23,6 +23,7 @@ const events = [
   }
 ];
 
+// ROUTES
 // Homepage
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -47,6 +48,7 @@ app.post('/api/events', (req, res) => {
   res.send(events);
 });
 
+// Listening to server
 app.listen(
   PORT,
   () => console.log(`It's alive on http://localhost:${PORT}`)
