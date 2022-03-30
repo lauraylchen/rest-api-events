@@ -1,7 +1,8 @@
+const Joi = require('joi');
 const mongoose = require('mongoose');
 
 // Event Schema
-const eventSchema = mongoose.Schema({
+const Event = mongoose.model('Event', new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -23,10 +24,21 @@ const eventSchema = mongoose.Schema({
       message: 'Start Date must be less than End Date.'
     }
   },
-});
+}));
 
 function dateValidator(value) {
   return this.start_date <= value;
 }
 
-module.exports = mongoose.model('Events', eventSchema);
+function validateEvent(event) {
+  const schema = {
+    name: Joi.string().max(32).required(),
+    description: Joi.string().required(),
+    start_date: Joi.date().required(),
+    end_date: Joi.date().greater(Joi.ref('start_date')).required()
+  };
+
+  return Joi.validate(event, schema);
+}
+exports.Event = Event;
+exports.validate = validateEvent;
