@@ -14,7 +14,6 @@ mongoose.connect(
 );
 
 // Middlewares
-app.use(express.json());
 app.use('/api/events', eventsRoute);
 
 // ROUTES
