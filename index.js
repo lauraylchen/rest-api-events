@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 
+// Middleware
+app.use(express.json());
+
 // Testing events
 const events = [
   {
@@ -23,7 +26,7 @@ const events = [
 // Homepage
 app.get('/', (req, res) => {
   res.send('Hello World!')
-})
+});
 
 // Display all the events
 app.get('/api/events', (req, res) => {
@@ -31,7 +34,18 @@ app.get('/api/events', (req, res) => {
 });
 
 // Create an event
-// app.post();
+app.post('/api/events', (req, res) => {
+  const event = {
+    id: events.length + 1,
+    name: req.body.name,
+    description: req.body.description,
+    start_date: req.body.start_date,
+    end_date: req.body.end_date
+  };
+
+  events.push(event);
+  res.send(events);
+});
 
 app.listen(
   PORT,
