@@ -1,32 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const Event = require('../models/event');
+const {Event, validate} = require('../models/event');
 
 // Display all the events
 router.get('/', async (req, res) => {
-  try {
-    const events = await Event.find();
-    res.json(events);
-  } catch (err) {
-    res.json({ message: err });
-  }
+  const events = await Event.find();
+  res.send(events);
 });
 
 // Create an event
 router.post('/', async (req, res) => {
-  const event = new Event ({
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let event = new Event ({
     name: req.body.name,
     description: req.body.description,
     start_date: req.body.start_date,
     end_date: req.body.end_date
   });
 
-  try {
-    const savedEvent = await event.save();
-    res.json(savedEvent);
-  } catch (err) {
-    res.json({ message: err });
-  }
+  event = await event.save();
+  res.send(events);
 });
 
 module.exports = router;
