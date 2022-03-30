@@ -13,14 +13,6 @@ mongoose.connect(
   () => console.log('connected to DB')
 );
 
-// Event Schema
-const eventSchema = new mongoose.Schema({
-  name: String,
-  description: String,
-  start_date: Date,
-  end_date: Date
-});
-
 // Middlewares
 app.use(express.json());
 app.use('/api/events', eventsRoute);
