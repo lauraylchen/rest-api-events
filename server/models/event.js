@@ -26,10 +26,12 @@ const Event = mongoose.model('Event', new mongoose.Schema({
   },
 }));
 
+// Custom Validation for end_date
 function dateValidator(value) {
   return this.start_date <= value;
 }
 
+// Validations from input form
 function validateEvent(event) {
   const schema = Joi.object({
     name: Joi.string().max(32).required(),

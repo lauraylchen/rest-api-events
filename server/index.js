@@ -17,7 +17,6 @@ mongoose.connect(
 app.use(express.json());
 app.use('/api/events', eventsRoute);
 
-// ROUTES
 // Homepage
 app.get('/', (req, res) => {
   res.send('Hello World!')
