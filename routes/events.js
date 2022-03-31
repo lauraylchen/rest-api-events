@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
   });
 
   event = await event.save();
-  res.send(events);
+  res.send(event);
 });
 
 module.exports = router;

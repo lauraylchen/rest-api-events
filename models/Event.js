@@ -31,14 +31,15 @@ function dateValidator(value) {
 }
 
 function validateEvent(event) {
-  const schema = {
+  const schema = Joi.object({
     name: Joi.string().max(32).required(),
     description: Joi.string().required(),
     start_date: Joi.date().required(),
     end_date: Joi.date().greater(Joi.ref('start_date')).required()
-  };
+  });
 
-  return Joi.validate(event, schema);
+  return schema.validate(event);
 }
+
 exports.Event = Event;
 exports.validate = validateEvent;
