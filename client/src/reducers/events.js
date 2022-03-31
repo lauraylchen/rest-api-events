@@ -1,7 +1,7 @@
 const reducer = (events = [], action) => {
   switch (action.type) {
     case 'FETCH_ALL':
-      return events;
+      return action.payload;
     case 'CREATE':
       return events;
     default:
