@@ -5,7 +5,7 @@ const {Event, validate} = require('../models/event');
 // Display all the events
 router.get('/', async (req, res) => {
   const events = await Event.find();
-  res.send(events);
+  res.status(200).json(events);
 });
 
 // Create an event
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
   });
 
   event = await event.save();
-  res.send(event);
+  res.status(201).json(event);
 });
 
 module.exports = router;

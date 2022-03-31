@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
