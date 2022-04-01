@@ -8,8 +8,6 @@ import Event from './Event/Event';
 const Events = () => {
   const events = useSelector((state) => state.events);
 
-  console.log(events);
-
   return (
     <Container>
       <Row>
