@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Event from './Event/Event';
 
@@ -9,11 +11,15 @@ const Events = () => {
   console.log(events);
 
   return (
-    <div>
-      <h1>Events</h1>
-      <Event />
-      <Event />
-    </div>
+    <Container>
+      <Row>
+        {events.map((event) => (
+          <Col sm={12} md={6}>
+            <Event event={event} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 

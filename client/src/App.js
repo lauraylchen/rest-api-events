@@ -19,12 +19,12 @@ const App = () => {
 
   return (
     <Container>
-      <h1 className='text-center my-3'>Manage Events</h1>
+      <h1 className='text-center my-5'>Manage Events</h1>
       <Row>
-        <Col sm={8}>
+        <Col lg={8}>
           <Events />
         </Col>
-        <Col sm={4}>
+        <Col lg={4}>
           <Form />
         </Col>
       </Row>

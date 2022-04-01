@@ -1,0 +1,11 @@
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.italic {
+  font-style: italic;
+  font-size: smaller;
+}
